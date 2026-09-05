@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>India AI B2B Panel — Department &amp; Role Distribution</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #12233F;
+    --navy-soft: #1B3358;
+    --teal: #1C7C74;
+    --teal-soft: #E4F1EF;
+    --slate: #5B6B79;
+    --bg: #F5F7F9;
+    --card: #FFFFFF;
+    --line: #E3E7EC;
+    --track: #EEF1F4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+  }
+  .hero {
+    background: linear-gradient(155deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color: #fff;
+    padding: 56px 8vw 44px;
+  }
+  .hero .kicker {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #9FD8D2;
+    margin: 0 0 10px;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.15;
+    margin: 0 0 14px;
+    max-width: 16ch;
+  }
+  .hero p {
+    max-width: 60ch;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: #C9D3DE;
+    margin: 0 0 22px;
+  }
+  .scope-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .scope-tags span {
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #E8ECF1;
+  }
+
+  .section {
+    padding: 46px 8vw;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .section-sub {
+    color: var(--slate);
+    font-size: 14px;
+    margin: 0 0 28px;
+    max-width: 70ch;
+    line-height: 1.55;
+  }
+
+  /* Level 1 */
+  .l1-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 26px;
+  }
+  .l1-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 34%) 1fr 46px;
+    align-items: center;
+    gap: 16px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .l1-row:last-child { border-bottom: none; }
+  .l1-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .l1-track {
+    background: var(--track);
+    border-radius: 6px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .l1-fill {
+    background: var(--teal);
+    height: 100%;
+    border-radius: 6px;
+  }
+  .l1-pct {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: right;
+    color: var(--navy);
+  }
+
+  /* Level 2 */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px 16px;
+  }
+  .card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+  .card-head h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .card-tag {
+    font-size: 11.5px;
+    color: var(--teal);
+    background: var(--teal-soft);
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .t-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 52%) 1fr 34px;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+  }
+  .t-name {
+    font-size: 12.2px;
+    color: #2B3B4E;
+  }
+  .t-track {
+    background: var(--track);
+    border-radius: 5px;
+    height: 7px;
+    overflow: hidden;
+  }
+  .t-fill {
+    background: var(--navy-soft);
+    height: 100%;
+    border-radius: 5px;
+  }
+  .t-pct {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+    color: var(--slate);
+  }
+
+  footer {
+    padding: 26px 8vw 50px;
+    color: var(--slate);
+    font-size: 12px;
+    border-top: 1px solid var(--line);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 640px) {
+    .l1-row { grid-template-columns: 1fr; row-gap: 6px; }
+    .l1-pct { text-align: left; }
+    .t-row { grid-template-columns: 1fr; row-gap: 4px; }
+    .t-pct { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <p class="kicker">India · B2B Market Research Panel</p>
+    <h1>AI Department Distribution</h1>
+    <p>Modelled recruitment composition of AI-related roles across India's agri-adjacent economy, weighted for organisational prevalence, seniority mix and online panel recruitment feasibility.</p>
+    <div class="scope-tags">
+      <span>Agriculture</span><span>Horticulture</span><span>Wood &amp; Forestry</span><span>Fishing &amp; Aquaculture</span><span>Tobacco</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Panel composition by AI department</h2>
+    <p class="section-sub">Share of the overall AI-professional panel accounted for by each department. Larger, more technically foundational and more recruitable functions carry a greater share; executive-only and highly specialised functions carry less.</p>
+    <div class="l1-panel">
+      
+        <div class="l1-row">
+          <div class="l1-name">AI &amp; Machine Learning Engineering</div>
+          <div class="l1-track"><div class="l1-fill" style="width:100.0%"></div></div>
+          <div class="l1-pct">11%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Supply Chain &amp; Logistics</div>
+          <div class="l1-track"><div class="l1-fill" style="width:63.6%"></div></div>
+          <div class="l1-pct">7%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">Agricultural Data Science</div>
+          <div class="l1-track"><div class="l1-fill" style="width:63.6%"></div></div>
+          <div class="l1-pct">7%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Robotics &amp; Automation</div>
+          <div class="l1-track"><div class="l1-fill" style="width:54.5%"></div></div>
+          <div class="l1-pct">6%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">Precision Agriculture AI</div>
+          <div class="l1-track"><div class="l1-fill" style="width:54.5%"></div></div>
+          <div class="l1-pct">6%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Sustainability &amp; Environmental Analytics</div>
+          <div class="l1-track"><div class="l1-fill" style="width:45.5%"></div></div>
+          <div class="l1-pct">5%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Crop Monitoring &amp; Computer Vision</div>
+          <div class="l1-track"><div class="l1-fill" style="width:45.5%"></div></div>
+          <div class="l1-pct">5%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Strategy &amp; Leadership</div>
+          <div class="l1-track"><div class="l1-fill" style="width:36.4%"></div></div>
+          <div class="l1-pct">4%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Product &amp; Innovation</div>
+          <div class="l1-track"><div class="l1-fill" style="width:36.4%"></div></div>
+          <div class="l1-pct">4%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Manufacturing &amp; Process Optimization</div>
+          <div class="l1-track"><div class="l1-fill" style="width:36.4%"></div></div>
+          <div class="l1-pct">4%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI IoT &amp; Smart Farm Technology</div>
+          <div class="l1-track"><div class="l1-fill" style="width:27.3%"></div></div>
+          <div class="l1-pct">3%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Agronomy &amp; Crop Intelligence</div>
+          <div class="l1-track"><div class="l1-fill" style="width:27.3%"></div></div>
+          <div class="l1-pct">3%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">Horticultural AI &amp; Precision Growing</div>
+          <div class="l1-track"><div class="l1-fill" style="width:27.3%"></div></div>
+          <div class="l1-pct">3%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">Horticultural Data Science</div>
+          <div class="l1-track"><div class="l1-fill" style="width:27.3%"></div></div>
+          <div class="l1-pct">3%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">Plant Vision &amp; Imaging</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">Smart Greenhouse AI</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Plant Health</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Forestry &amp; Resource Intelligence</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Timber Yield &amp; Predictive Analytics</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Computer Vision &amp; Wood Inspection</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Fisheries Intelligence</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Marine Computer Vision</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Vessel &amp; Fleet Optimization</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Catch Forecasting &amp; Resource Management</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Aquaculture &amp; Fish Farming</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Tobacco Agriculture</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Quality &amp; Computer Vision (Tobacco)</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Consumer &amp; Market Analytics</div>
+          <div class="l1-track"><div class="l1-fill" style="width:18.2%"></div></div>
+          <div class="l1-pct">2%</div>
+        </div>
+
+        <div class="l1-row">
+          <div class="l1-name">AI Compliance, Risk &amp; Governance</div>
+          <div class="l1-track"><div class="l1-fill" style="width:9.1%"></div></div>
+          <div class="l1-pct">1%</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Role mix within each department</h2>
+    <p class="section-sub">Within every department, individual job titles are distributed independently — common technical and analytical roles skew larger, senior executive titles skew smaller.</p>
+    <div class="card-grid">
+      
+        <section class="card">
+          <header class="card-head">
+            <h3>AI &amp; Machine Learning Engineering</h3>
+            <span class="card-tag">11% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Machine Learning Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">20%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Senior Machine Learning Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:70.0%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Systems Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Solutions Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:45.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:45.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Deep Learning Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:40.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Applied Machine Learning Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:40.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Machine Learning Engineering Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:35.0%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Machine Learning Engineering</div>
+            <div class="t-track"><div class="t-fill" style="width:30.0%"></div></div>
+            <div class="t-pct">6%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Machine Learning</div>
+            <div class="t-track"><div class="t-fill" style="width:25.0%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">VP – Machine Learning Engineering</div>
+            <div class="t-track"><div class="t-fill" style="width:20.0%"></div></div>
+            <div class="t-pct">4%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Supply Chain &amp; Logistics</h3>
+            <span class="card-tag">7% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Supply Chain Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Demand Forecasting Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Supply Chain AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Logistics Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Inventory Optimization Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Route Optimization Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Supply Chain Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Distribution Analytics Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Supply Chain Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of AI Supply Chain</div>
+            <div class="t-track"><div class="t-fill" style="width:31.2%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>Agricultural Data Science</h3>
+            <span class="card-tag">7% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Agricultural Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">17%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Agricultural Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:82.4%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Senior Agricultural Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:76.5%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Farm Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:64.7%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:58.8%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Junior Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:52.9%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Data Analytics Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:47.1%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Data Science Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:41.2%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Agricultural Data Science</div>
+            <div class="t-track"><div class="t-fill" style="width:35.3%"></div></div>
+            <div class="t-pct">6%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Chief Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:29.4%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Robotics &amp; Automation</h3>
+            <span class="card-tag">6% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Robotics Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">18%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Automation Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:83.3%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Autonomous Systems Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:72.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Industrial Automation Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:61.1%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Field Robotics Technician</div>
+            <div class="t-track"><div class="t-fill" style="width:55.6%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Machine Vision &amp; Robotics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Robotic Process Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:44.4%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Robotics Engineering Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:38.9%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Robotics &amp; Automation</div>
+            <div class="t-track"><div class="t-fill" style="width:27.8%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Autonomous Systems</div>
+            <div class="t-track"><div class="t-fill" style="width:22.2%"></div></div>
+            <div class="t-pct">4%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>Precision Agriculture AI</h3>
+            <span class="card-tag">6% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Precision Farming Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Agricultural AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:86.7%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Smart Farming AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:80.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Farm Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:73.3%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Precision Agriculture Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Intelligence Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Agronomy Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:60.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Precision Agriculture AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:53.3%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Precision Agriculture Technology</div>
+            <div class="t-track"><div class="t-fill" style="width:46.7%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Precision Agriculture AI</div>
+            <div class="t-track"><div class="t-fill" style="width:33.3%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Sustainability &amp; Environmental Analytics</h3>
+            <span class="card-tag">5% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Sustainability Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Environmental AI Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Carbon Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Climate Risk Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Water Intelligence Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Soil Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Sustainability Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Climate Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of AI Sustainability</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Crop Monitoring &amp; Computer Vision</h3>
+            <span class="card-tag">5% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Agricultural Computer Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Detection Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:86.7%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Remote Sensing AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:80.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Drone Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:73.3%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Imaging Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Satellite Analytics Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:60.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:53.3%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Director</div>
+            <div class="t-track"><div class="t-fill" style="width:46.7%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Crop Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:33.3%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Strategy &amp; Leadership</h3>
+            <span class="card-tag">4% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">AI Program Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Portfolio Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – AI Transformation</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Strategy Director</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of AI Strategy</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Artificial Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">VP – Artificial Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">SVP – Digital &amp; AI Transformation</div>
+            <div class="t-track"><div class="t-fill" style="width:37.5%"></div></div>
+            <div class="t-pct">6%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Chief Data &amp; AI Officer</div>
+            <div class="t-track"><div class="t-fill" style="width:31.2%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Chief AI Officer</div>
+            <div class="t-track"><div class="t-fill" style="width:31.2%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Product &amp; Innovation</h3>
+            <span class="card-tag">4% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">AI Product Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">18%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Product Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:77.8%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Product Owner</div>
+            <div class="t-track"><div class="t-fill" style="width:72.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Senior AI Product Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Innovation Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:61.1%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – AI Products</div>
+            <div class="t-track"><div class="t-fill" style="width:55.6%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of AI Product Management</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">VP – AI Products</div>
+            <div class="t-track"><div class="t-fill" style="width:38.9%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Chief AI Product Officer</div>
+            <div class="t-track"><div class="t-fill" style="width:33.3%"></div></div>
+            <div class="t-pct">6%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Manufacturing &amp; Process Optimization</h3>
+            <span class="card-tag">4% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Process Optimization Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Manufacturing Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Predictive Maintenance Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Process Automation Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Production Analytics Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Quality Process Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Manufacturing AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Process Optimization</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Manufacturing AI</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI IoT &amp; Smart Farm Technology</h3>
+            <span class="card-tag">3% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Agricultural IoT Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">IoT Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:86.7%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Sensor Analytics Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:80.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AIoT Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:73.3%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Farm Technology Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Smart Agriculture Systems Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Connected Farm Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:60.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Smart Farming Technology Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:53.3%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">IoT &amp; AI Director</div>
+            <div class="t-track"><div class="t-fill" style="width:46.7%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Smart Agriculture Technology</div>
+            <div class="t-track"><div class="t-fill" style="width:33.3%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Agronomy &amp; Crop Intelligence</h3>
+            <span class="card-tag">3% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Digital Agronomist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Yield Forecasting Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:86.7%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Crop Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:80.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Risk Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:73.3%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Prediction Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Health Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:66.7%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Intelligence Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:60.0%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Agronomy Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:53.3%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – AI Agronomy</div>
+            <div class="t-track"><div class="t-fill" style="width:46.7%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Chief Agronomist – AI</div>
+            <div class="t-track"><div class="t-fill" style="width:33.3%"></div></div>
+            <div class="t-pct">5%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>Horticultural AI &amp; Precision Growing</h3>
+            <span class="card-tag">3% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Horticulture AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">17%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Precision Horticulture Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:88.2%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Smart Growing Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:76.5%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Digital Horticulture Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:70.6%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Cultivation Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:64.7%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Intelligent Growing Systems Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:58.8%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Precision Growing Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:52.9%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Precision Horticulture Director</div>
+            <div class="t-track"><div class="t-fill" style="width:41.2%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Horticultural AI</div>
+            <div class="t-track"><div class="t-fill" style="width:35.3%"></div></div>
+            <div class="t-pct">6%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>Horticultural Data Science</h3>
+            <span class="card-tag">3% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Horticultural Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">17%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Horticulture Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:88.2%"></div></div>
+            <div class="t-pct">15%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Production Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:76.5%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:64.7%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:64.7%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Yield Analytics Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:58.8%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Data Scientist (Horticulture)</div>
+            <div class="t-track"><div class="t-fill" style="width:52.9%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Horticultural Data Science Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:47.1%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Horticulture Data Science</div>
+            <div class="t-track"><div class="t-fill" style="width:35.3%"></div></div>
+            <div class="t-pct">6%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>Plant Vision &amp; Imaging</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Horticultural Computer Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Imaging Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Disease Detection Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fruit Recognition Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Phenotyping Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Visual Crop Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Vision Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Manager (Horticulture)</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Plant Vision</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>Smart Greenhouse AI</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Smart Greenhouse Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Greenhouse Automation Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Intelligent Irrigation Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Controlled Environment AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Climate Control AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Greenhouse Systems Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Environmental Control Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Greenhouse AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Smart Greenhouse Technology</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Plant Health</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Plant Disease Detection Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Pest Detection Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Health Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Pest Prediction Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Crop Health Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Stress Detection Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Disease Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Plant Health AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Plant Health Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Forestry &amp; Resource Intelligence</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Forest Resource Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Forestry Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Forest Inventory Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Remote Sensing Forestry Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Forest Health Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Timberland Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Forestry AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Forest Resource Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Forestry Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Timber Yield &amp; Predictive Analytics</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Timber Yield Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Predictive Forestry Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Growth &amp; Yield Modeling Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Timber Volume Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Forest Growth Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Harvest Planning Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Timber Yield Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Predictive Forestry</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Timber Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Computer Vision &amp; Wood Inspection</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Wood Inspection AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Defect Detection Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Timber Grading Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Sawmill Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Wood Quality Analytics Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Log Scanning Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Visual Inspection Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Manager (Wood)</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Wood Vision Systems</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Fisheries Intelligence</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Fisheries Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fisheries Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Marine Resource Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fish Stock Assessment Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fisheries Research Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fisheries Compliance Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fisheries AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Fisheries Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Fisheries Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Marine Computer Vision</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Marine Computer Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fish Species Recognition Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Catch Monitoring Vision Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Underwater Imaging Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Marine Video Analytics Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Sonar Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Visual Catch Assessment Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Manager (Marine)</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Marine Vision Systems</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Vessel &amp; Fleet Optimization</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Vessel Route Optimization Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fleet Performance Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fuel Efficiency Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Marine Operations Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Vessel Maintenance Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fleet Scheduling Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fleet Optimization Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Vessel Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Fleet Optimization</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Catch Forecasting &amp; Resource Management</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Catch Prediction Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fisheries Forecasting Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Resource Allocation Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Seasonal Catch Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Quota Management Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Marine Resource Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Catch Forecasting Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Marine Resource Management</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Catch Forecasting</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Aquaculture &amp; Fish Farming</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Aquaculture Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fish Farm Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Water Quality Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Fish Health Monitoring Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Feed Optimization Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Aquaculture Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Aquaculture AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Fish Farming Technology</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Aquaculture AI</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Tobacco Agriculture</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Tobacco Crop Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Tobacco Yield Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Precision Tobacco Farming Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Leaf Quality Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Tobacco Farm Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Tobacco Agronomy Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Tobacco Agriculture AI Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Tobacco Crop Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Tobacco AgriTech</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Quality &amp; Computer Vision (Tobacco)</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Tobacco Quality AI Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Leaf Grading Vision Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Defect Detection Specialist (Tobacco)</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Product Inspection Engineer</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Quality Analytics Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Vision-Based QC Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Quality Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Computer Vision Manager (Tobacco)</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Quality Vision Systems</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Consumer &amp; Market Analytics</h3>
+            <span class="card-tag">2% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Consumer Insights Data Scientist</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Market Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:87.5%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Consumer Behavior Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:81.2%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Market Research Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:75.0%"></div></div>
+            <div class="t-pct">12%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Consumer Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:68.8%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Brand Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:62.5%"></div></div>
+            <div class="t-pct">10%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Consumer Analytics Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:56.2%"></div></div>
+            <div class="t-pct">9%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – Market Intelligence</div>
+            <div class="t-track"><div class="t-fill" style="width:50.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of Consumer Analytics</div>
+            <div class="t-track"><div class="t-fill" style="width:43.8%"></div></div>
+            <div class="t-pct">7%</div>
+          </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <h3>AI Compliance, Risk &amp; Governance</h3>
+            <span class="card-tag">1% of panel</span>
+          </header>
+          <div class="card-body">
+            
+          <div class="t-row">
+            <div class="t-name">Compliance Data Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:100.0%"></div></div>
+            <div class="t-pct">20%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Regulatory Analytics Analyst</div>
+            <div class="t-track"><div class="t-fill" style="width:90.0%"></div></div>
+            <div class="t-pct">18%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Risk Analytics Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:80.0%"></div></div>
+            <div class="t-pct">16%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Governance Specialist</div>
+            <div class="t-track"><div class="t-fill" style="width:70.0%"></div></div>
+            <div class="t-pct">14%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">AI Compliance Manager</div>
+            <div class="t-track"><div class="t-fill" style="width:65.0%"></div></div>
+            <div class="t-pct">13%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Director – AI Risk &amp; Compliance</div>
+            <div class="t-track"><div class="t-fill" style="width:55.0%"></div></div>
+            <div class="t-pct">11%</div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-name">Head of AI Governance</div>
+            <div class="t-track"><div class="t-fill" style="width:40.0%"></div></div>
+            <div class="t-pct">8%</div>
+          </div>
+          </div>
+        </section>
+    </div>
+  </div>
+
+  <footer>
+    Modelled distribution for B2B panel design purposes · India AI talent audience across agriculture, horticulture, wood, fishing and tobacco value chains.
+  </footer>
+
+</body>
+</html>
